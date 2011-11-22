@@ -27,6 +27,7 @@ end
 group :test do
   gem 'rspec-rails'
   gem 'webrat'
+  gem 'spork', '0.9.0.rc9'
 end
 
 # To use ActiveModel has_secure_password
