@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Daria Kronberg | <%= @title %></title>
+    <title><%= title %></title>
     <%= stylesheet_link_tag    "application", :rel => "stylesheet/less" %>
     <%= javascript_include_tag "application" %>
     <link rel="stylesheet/less" type="text/css" href="/assets/base.css">
@@ -19,16 +19,11 @@
 		<div id="arrow"></div>
 
 		<div id="mainmenu">
-			<a href="#" class="selected"><span>Work</span></a>
-			<a href="#"><span>About</span></a>
-			<a href="#"><span>Photo</span></a>
-			<a href="#"><span>Follow</span></a>
-			<a href="#"><span>Contacts</span></a>
+            <%= raw mainmenu %>
 		</div>
 	</div>
 	<div id="content" class="clearfix">
         <%= yield %>
-
 	</div>
 	<div id="footer" class="clearfix">
 	</div>
@@ -36,9 +31,9 @@
 </body>
 <script language="javascript">
 	$(document).ready(function() {
-		var arrow = $("#arrow");
-		var mainmenu = $("#mainmenu");
-		Arrow.init(arrow, mainmenu);
+        var arrow = $("#arrow");
+        arrow.visibility = false;
+
 
 		$(".project").each(function(i) {
 				console.log($(this));
@@ -46,6 +41,13 @@
 		});
 
 	});
+
+    $(window).load(function() {
+        var arrow = $("#arrow");
+        arrow.opacity = 1;
+        var mainmenu = $("#mainmenu");
+        Arrow.init(arrow, mainmenu);
+    });
 
 	var Arrow = {
 

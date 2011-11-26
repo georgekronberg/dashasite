@@ -1,5 +1,9 @@
 Railsapp::Application.routes.draw do
   match '/home',   :to => 'pages#home'
+  match '/about',   :to => 'pages#about'
+  match '/photo',   :to => 'pages#photo'
+  match '/follow',   :to => 'pages#follow'
+  match '/contacts',   :to => 'pages#contacts'
 
   root :to => 'pages#home'
 
